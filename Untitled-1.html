@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABID AH Digital Hub</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, sans-serif}
+html{scroll-behavior:smooth}
+body{background:#f4f6f9;color:#333}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#0f172a;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+transition:0.3s;
+}
+header.scrolled{background:#020617;box-shadow:0 5px 20px rgba(0,0,0,0.2)}
+.logo{color:#22c55e;font-weight:bold;font-size:20px}
+nav a{
+color:#fff;
+margin-left:25px;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+nav a:hover{color:#22c55e}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:#fff;
+padding:0 20px;
+}
+.hero h1{font-size:40px;margin-bottom:20px}
+.hero span{color:#22c55e}
+.hero p{max-width:600px;margin-bottom:30px;opacity:0.9}
+.btn{
+background:#22c55e;
+padding:12px 30px;
+border-radius:30px;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+.btn:hover{background:#16a34a}
+
+/* SECTIONS */
+section{padding:100px 8%}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{font-size:32px;color:#0f172a;margin-bottom:10px}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+.card{
+background:#fff;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+.contact{
+background:#0f172a;
+color:#fff;
+text-align:center;
+}
+.contact a{color:#22c55e}
+
+/* FOOTER */
+footer{
+background:#020617;
+color:#aaa;
+text-align:center;
+padding:20px;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+.whatsapp:hover{transform:scale(1.1)}
+
+@media(max-width:768px){
+.hero h1{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="logo">ABID AH Digital Hub</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Grow Your Business With <span>Digital Excellence</span></h1>
+<p>Professional Web Development, Design & Digital Marketing Solutions.</p>
+<a href="#services" class="btn">Explore Services</a>
+</section>
+
+<section id="services">
+<div class="section-title">
+<h2>Our Services</h2>
+</div>
+
+<div class="services-grid">
+<div class="card">💻 Web Development</div>
+<div class="card">📱 App Development</div>
+<div class="card">🎨 Graphic Design</div>
+<div class="card">📈 Digital Marketing</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="section-title">
+<h2>Contact Us</h2>
+</div>
+<p>Email: info@abidahdigitalhub.com</p>
+<p>Phone: +92 329 2156525</p>
+</section>
+
+<footer>
+© 2026 ABID AH Digital Hub. All Rights Reserved.
+</footer>
+
+<a href="https://wa.me/923292156525" class="whatsapp">💬</a>
+
+<script>
+window.addEventListener("scroll", function(){
+document.getElementById("header").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+const cards = document.querySelectorAll(".card");
+window.addEventListener("scroll", function(){
+cards.forEach(card=>{
+const cardTop = card.getBoundingClientRect().top;
+if(cardTop < window.innerHeight - 100){
+card.classList.add("show");
+}
+});
+});
+</script>
+
+</body>
+</html>
